@@ -5,9 +5,20 @@ import { TeamStanding } from "@/lib/types";
 import PlayerRow from "./PlayerRow";
 
 const rankColors: Record<number, string> = {
-  0: "from-yellow-500/20 to-yellow-500/5 border-yellow-500/30",
-  1: "from-slate-400/20 to-slate-400/5 border-slate-400/30",
-  2: "from-amber-700/20 to-amber-700/5 border-amber-700/30",
+  0: "border-yellow-500/30",
+  1: "border-slate-400/30",
+  2: "border-amber-700/30",
+};
+
+const teamColors: Record<string, string> = {
+  "Team White": "from-slate-200/10 to-slate-200/5",
+  "Team Red": "from-red-400/15 to-red-400/5",
+  "Team Blue": "from-blue-400/15 to-blue-400/5",
+  "Team Brown": "from-amber-800/15 to-amber-800/5",
+  "Team Green": "from-green-400/15 to-green-400/5",
+  "Team Orange": "from-orange-400/15 to-orange-400/5",
+  "Team Pink": "from-pink-400/15 to-pink-400/5",
+  "Team Yellow": "from-yellow-400/15 to-yellow-400/5",
 };
 
 export default function TeamCard({
@@ -19,12 +30,14 @@ export default function TeamCard({
 }) {
   const [expanded, setExpanded] = useState(false);
 
-  const colorClass =
-    rankColors[rank] ?? "from-slate-800 to-slate-800 border-slate-700";
+  const borderClass =
+    rankColors[rank] ?? "border-slate-700";
+  const gradientClass =
+    teamColors[team.teamName] ?? "from-slate-800 to-slate-800";
 
   return (
     <div
-      className={`rounded-xl border bg-gradient-to-r ${colorClass} overflow-hidden`}
+      className={`rounded-xl border bg-gradient-to-r ${gradientClass} ${borderClass} overflow-hidden`}
     >
       <button
         onClick={() => setExpanded(!expanded)}
