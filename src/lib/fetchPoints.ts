@@ -27,7 +27,7 @@ async function loadStoredPoints(): Promise<StoredPoints> {
 
 async function saveStoredPoints(points: StoredPoints): Promise<void> {
   await put(BLOB_FILENAME, JSON.stringify(points), {
-    access: "public",
+    access: "private",
     addRandomSuffix: false,
     allowOverwrite: true,
   });
