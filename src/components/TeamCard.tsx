@@ -75,7 +75,7 @@ export default function TeamCard({
             </thead>
             <tbody>
               {team.players.map((player, i) => (
-                <PlayerRow key={player.playerId} player={player} index={i} />
+                <PlayerRow key={player.playerId} player={player} index={i} isTop11={i < 11} />
               ))}
             </tbody>
           </table>
